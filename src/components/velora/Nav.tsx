@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "./ThemeProvider";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,13 +26,17 @@ export function Nav() {
         <a href="#top" className="text-center font-serif text-2xl md:text-[26px] tracking-[0.18em] font-normal text-ink">
           VELORA
         </a>
-        <div className="hidden md:flex items-center justify-end gap-10 text-[10px] uppercase tracking-luxe font-medium text-ink/70">
+        <div className="hidden md:flex items-center justify-end gap-8 text-[10px] uppercase tracking-luxe font-medium text-ink/70">
           <a href="#journal" className="hover:text-ink transition-colors">Journal</a>
           <a href="#press" className="hover:text-ink transition-colors">Press</a>
           <a href="#newsletter" className="hover:text-ink transition-colors">Concierge</a>
+          <ThemeToggle />
         </div>
-        <div className="md:hidden text-right text-[10px] uppercase tracking-luxe font-medium text-ink/60">Menu</div>
+        <div className="md:hidden flex justify-end">
+          <ThemeToggle />
+        </div>
       </div>
     </nav>
   );
 }
+

@@ -34,7 +34,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* Velora brand tokens */
+  /* Velora brand tokens (semantic — flip in dark) */
   --color-ivory: var(--ivory);
   --color-cream: var(--cream);
   --color-gold: var(--gold);
@@ -53,7 +53,7 @@
 :root {
   --radius: 0.25rem;
 
-  /* Velora palette in oklch */
+  /* Light — Velora original */
   --ivory: oklch(0.984 0.008 70);
   --cream: oklch(0.965 0.014 75);
   --gold: oklch(0.76 0.13 85);
@@ -62,7 +62,6 @@
   --nude: oklch(0.88 0.03 60);
   --ink: oklch(0.14 0 0);
 
-  /* Shadcn mappings */
   --background: var(--ivory);
   --foreground: var(--ink);
   --card: oklch(1 0 0);
@@ -84,21 +83,30 @@
   --ring: var(--gold);
 }
 
+/* Dark — flip ivory/ink so existing brand utilities adapt site-wide */
 .dark {
-  --background: var(--ink);
-  --foreground: var(--ivory);
-  --card: oklch(0.18 0 0);
-  --card-foreground: var(--ivory);
-  --popover: oklch(0.18 0 0);
-  --popover-foreground: var(--ivory);
-  --primary: var(--ivory);
-  --primary-foreground: var(--ink);
-  --secondary: oklch(0.22 0 0);
-  --secondary-foreground: var(--ivory);
-  --muted: oklch(0.22 0 0);
+  --ivory: oklch(0.13 0.005 280);
+  --cream: oklch(0.18 0.008 280);
+  --gold: oklch(0.82 0.13 85);
+  --gold-soft: oklch(0.7 0.1 85);
+  --rose: oklch(0.6 0.05 40);
+  --nude: oklch(0.3 0.02 60);
+  --ink: oklch(0.96 0.008 80);
+
+  --background: var(--ivory);
+  --foreground: var(--ink);
+  --card: oklch(0.17 0.008 280);
+  --card-foreground: var(--ink);
+  --popover: oklch(0.17 0.008 280);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--ivory);
+  --secondary: var(--cream);
+  --secondary-foreground: var(--ink);
+  --muted: var(--cream);
   --muted-foreground: oklch(0.7 0.01 70);
   --accent: var(--gold);
-  --accent-foreground: var(--ink);
+  --accent-foreground: oklch(0.14 0 0);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: var(--gold);
@@ -121,7 +129,17 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "ss01", "cv11";
+    transition: background-color 600ms var(--ease-silk), color 600ms var(--ease-silk);
   }
+
+  /* Smooth color transition across themed surfaces */
+  body, body * {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+    transition-duration: 500ms;
+    transition-timing-function: var(--ease-silk);
+  }
+  /* But don't smear transforms/opacity/filter animations */
+  .no-theme-transition, .no-theme-transition * { transition: none !important; }
 
   h1, h2, h3, h4, .font-serif {
     font-family: var(--font-serif);
@@ -132,6 +150,20 @@
   ::selection {
     background-color: color-mix(in oklab, var(--gold) 30%, transparent);
     color: var(--ink);
+  }
+
+  /* Dark mode — soften product imagery instead of glaring white */
+  .dark img:not([data-no-dark]) {
+    filter: brightness(0.88) contrast(1.02);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
@@ -220,10 +252,12 @@
   transform-origin: left;
 }
 
+/* Glassmorphism — adapts via ivory/ink tokens */
 .glass {
-  background: color-mix(in oklab, var(--ivory) 50%, transparent);
+  background: color-mix(in oklab, var(--ivory) 55%, transparent);
   backdrop-filter: blur(20px) saturate(120%);
   -webkit-backdrop-filter: blur(20px) saturate(120%);
+  border: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
 }
 
 .glass-dark {
@@ -237,4 +271,129 @@
     0 1px 2px color-mix(in oklab, var(--ink) 4%, transparent),
     0 20px 40px -12px color-mix(in oklab, var(--ink) 14%, transparent),
     0 40px 80px -24px color-mix(in oklab, var(--gold) 8%, transparent);
+}
+
+/* ===========================
+   Cinematic Loading Screen
+   =========================== */
+
+@keyframes velora-loader-fade {
+  to { opacity: 0; visibility: hidden; }
+}
+@keyframes velora-loader-line {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+@keyframes velora-loader-letter {
+  from { opacity: 0; transform: translateY(20px); filter: blur(8px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.velora-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--ivory);
+  color: var(--ink);
+  transition: opacity 900ms var(--ease-silk), visibility 900ms;
+}
+.velora-loader.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.velora-loader__word {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  letter-spacing: 0.18em;
+  display: flex;
+  gap: 0.05em;
+}
+.velora-loader__word span {
+  display: inline-block;
+  opacity: 0;
+  animation: velora-loader-letter 900ms var(--ease-silk) forwards;
+}
+.velora-loader__line {
+  margin-top: 2.5rem;
+  height: 1px;
+  width: min(280px, 60vw);
+  background: color-mix(in oklab, var(--ink) 18%, transparent);
+  position: relative;
+  overflow: hidden;
+}
+.velora-loader__line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform-origin: left;
+  animation: velora-loader-line 1600ms var(--ease-silk) forwards;
+}
+.velora-loader__meta {
+  margin-top: 1.25rem;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--ink) 55%, transparent);
+}
+
+/* ===========================
+   Luxury Custom Cursor
+   =========================== */
+
+@media (hover: hover) and (pointer: fine) {
+  .velora-cursor body { cursor: none; }
+  .velora-cursor a,
+  .velora-cursor button,
+  .velora-cursor [role="button"],
+  .velora-cursor input,
+  .velora-cursor textarea,
+  .velora-cursor label { cursor: none; }
+}
+
+.velora-cursor-dot,
+.velora-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 9999px;
+  transform: translate3d(-50%, -50%, 0);
+  mix-blend-mode: difference;
+}
+.velora-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: oklch(0.98 0 0);
+  transition: width 300ms var(--ease-silk), height 300ms var(--ease-silk), opacity 300ms;
+}
+.velora-cursor-ring {
+  width: 38px;
+  height: 38px;
+  border: 1px solid oklch(0.98 0 0 / 0.6);
+  transition: width 400ms var(--ease-silk), height 400ms var(--ease-silk),
+              border-color 400ms, opacity 300ms, background-color 400ms;
+}
+.velora-cursor-ring.is-hover {
+  width: 72px;
+  height: 72px;
+  border-color: var(--gold);
+  background: color-mix(in oklab, var(--gold) 14%, transparent);
+}
+.velora-cursor-dot.is-hover {
+  width: 2px;
+  height: 2px;
+}
+.velora-cursor-ring.is-down {
+  width: 28px;
+  height: 28px;
+}
+@media (hover: none), (pointer: coarse) {
+  .velora-cursor-dot, .velora-cursor-ring { display: none; }
 }

@@ -13,26 +13,48 @@ import { Instagram } from "@/components/velora/Instagram";
 import { Newsletter } from "@/components/velora/Newsletter";
 import { Footer } from "@/components/velora/Footer";
 import { useReveal } from "@/components/velora/useReveal";
+import { LoadingScreen } from "@/components/velora/LoadingScreen";
+import { CustomCursor } from "@/components/velora/CustomCursor";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Velora Beauty — Beauty Beyond Perfection" },
+      { title: "Velora Beauty — Luxury Cosmetics & Fragrance Atelier" },
       {
         name: "description",
         content:
           "Velora is a modern luxury beauty atelier crafting limited-edition lipsticks, serums, foundations, and fragrances in Paris and Tokyo.",
       },
-      { property: "og:title", content: "Velora Beauty — Beauty Beyond Perfection" },
+      { property: "og:title", content: "Velora Beauty — Luxury Cosmetics & Fragrance Atelier" },
       {
         property: "og:description",
         content: "A modern luxury beauty atelier — micro-batch formulas crafted in Paris and Tokyo.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
+      { name: "twitter:title", content: "Velora Beauty — Luxury Cosmetics" },
+      { name: "twitter:description", content: "Beauty Beyond Perfection. Limited-edition cosmetics from Paris and Tokyo." },
     ],
     links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Velora Beauty",
+          url: "/",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "/?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }),
+      },
+    ],
   }),
+
   component: Index,
 });
 
@@ -40,6 +62,8 @@ function Index() {
   useReveal();
   return (
     <div className="bg-ivory text-ink font-sans antialiased">
+      <LoadingScreen />
+      <CustomCursor />
       <Nav />
       <main>
         <Hero />
@@ -58,3 +82,4 @@ function Index() {
     </div>
   );
 }
+
