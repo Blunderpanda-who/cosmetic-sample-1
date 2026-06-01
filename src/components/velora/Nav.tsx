@@ -24,7 +24,7 @@ export function Nav() {
         </div>
         <div className="md:hidden text-[10px] uppercase tracking-luxe font-medium text-ink/60">Est. 2024</div>
         <a href="#top" className="text-center font-serif text-2xl md:text-[26px] tracking-[0.18em] font-normal text-ink">
-          VELORA
+          SWASTIK BEAUTY
         </a>
         <div className="hidden md:flex items-center justify-end gap-8 text-[10px] uppercase tracking-luxe font-medium text-ink/70">
           <a href="#journal" className="hover:text-ink transition-colors">Journal</a>

@@ -47,7 +47,7 @@ export function Footer() {
         {/* Giant wordmark */}
         <div className="overflow-hidden mb-10 border-t border-ink/8 pt-10">
           <div className="font-serif text-[18vw] leading-none tracking-[0.02em] text-ink/[0.08] text-center select-none">
-            VELORA
+            SWASTIK BEAUTY
           </div>
         </div>
 
