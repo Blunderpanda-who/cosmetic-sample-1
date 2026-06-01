@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const LETTERS = ["V", "E", "L", "O", "R", "A"];
+const LETTERS = ["S", "W", "A", "S", "T", "I", "K"];
 
 export function LoadingScreen() {
   const [done, setDone] = useState(false);
