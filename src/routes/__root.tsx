@@ -84,10 +84,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Velora is a modern luxury beauty atelier crafting limited-edition cosmetics and fragrances in Paris and Tokyo.",
+          "Swastik Beauty Cosmetics is a modern luxury beauty atelier crafting limited-edition cosmetics and fragrances in Paris and Tokyo.",
       },
       { name: "author", content: "Swastik Beauty Cosmetics" },
-      { name: "keywords", content: "luxury cosmetics, beauty, perfume, skincare, lipstick, atelier, Paris, Tokyo, Velora" },
+      { name: "keywords", content: "luxury cosmetics, beauty, perfume, skincare, lipstick, atelier, Paris, Tokyo, Swastik Beauty Cosmetics" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Swastik Beauty Cosmetics" },
       { property: "og:locale", content: "en_US" },

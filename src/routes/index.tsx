@@ -24,7 +24,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Velora is a modern luxury beauty atelier crafting limited-edition lipsticks, serums, foundations, and fragrances in Paris and Tokyo.",
+          "Swastik Beauty Cosmetics is a modern luxury beauty atelier crafting limited-edition lipsticks, serums, foundations, and fragrances in Paris and Tokyo.",
       },
       { property: "og:title", content: "Swastik Beauty Cosmetics — Luxury Cosmetics & Fragrance Atelier" },
       {
