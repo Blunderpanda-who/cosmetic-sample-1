@@ -24,7 +24,7 @@ export function Story() {
             <div className="overflow-hidden aspect-[4/5] bg-neutral-900 shadow-luxe">
               <img
                 src={musePortrait}
-                alt="Velora muse — editorial portrait"
+                alt="Swastik Beauty muse — editorial portrait"
                 width={1280}
                 height={1600}
                 loading="lazy"
@@ -53,7 +53,7 @@ export function Story() {
               Alchemy
             </h2>
             <p className="text-ivory/65 text-base md:text-lg font-light leading-relaxed mb-6 max-w-xl text-pretty">
-              At the heart of Velora lies a devotion to craft. Each formulation is the work of master perfumers, biochemists, and artisans — a quiet rebellion against the disposable, the synthetic, the ordinary.
+              At the heart of Swastik Beauty lies a devotion to craft. Each formulation is the work of master perfumers, biochemists, and artisans — a quiet rebellion against the disposable, the synthetic, the ordinary.
             </p>
             <p className="text-ivory/45 text-sm font-light leading-relaxed mb-12 max-w-xl text-pretty italic font-serif">
               "True luxury is felt before it is seen." — Eloise Marchand, Founder

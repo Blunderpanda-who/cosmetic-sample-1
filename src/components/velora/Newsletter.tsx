@@ -41,7 +41,7 @@ export function Newsletter() {
             type="submit"
             className="mt-10 px-12 py-4 border border-ivory/30 text-[10px] uppercase tracking-luxe text-ivory hover:bg-[color:var(--gold)] hover:text-ink hover:border-[color:var(--gold)] transition-all duration-700"
           >
-            {sent ? "Welcome To Velora" : "Request Invitation"}
+            {sent ? "Welcome To Swastik Beauty" : "Request Invitation"}
           </button>
         </form>
         <p className="mt-10 text-[10px] uppercase tracking-luxe text-ivory/30">

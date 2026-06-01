@@ -27,7 +27,7 @@ export function Ingredients() {
           </div>
           <div className="md:col-span-5">
             <p className="text-ink/60 font-light leading-relaxed text-pretty">
-              Every Velora formula is composed from a private library of fewer than forty actives — chosen for provenance, traceability, and cellular efficacy.
+              Every Swastik Beauty formula is composed from a private library of fewer than forty actives — chosen for provenance, traceability, and cellular efficacy.
             </p>
           </div>
         </div>
