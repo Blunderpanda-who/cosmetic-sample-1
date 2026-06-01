@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const LETTERS = ["V", "E", "L", "O", "R", "A"];
+const LETTERS = ["S", "W", "A", "S", "T", "I", "K"];
 
 export function LoadingScreen() {
   const [done, setDone] = useState(false);
@@ -18,7 +18,7 @@ export function LoadingScreen() {
 
   return (
     <div className={`velora-loader ${done ? "is-done" : ""}`} aria-hidden={done}>
-      <div className="velora-loader__word" aria-label="Velora">
+      <div className="velora-loader__word" aria-label="Swastik Beauty">
         {LETTERS.map((l, i) => (
           <span key={i} style={{ animationDelay: `${i * 90}ms` }}>{l}</span>
         ))}

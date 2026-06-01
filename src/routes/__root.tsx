@@ -80,19 +80,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { name: "theme-color", content: "#fff9f5" },
-      { title: "Velora Beauty — Beauty Beyond Perfection" },
+      { title: "Swastik Beauty Cosmetics — Beauty Beyond Perfection" },
       {
         name: "description",
         content:
-          "Velora is a modern luxury beauty atelier crafting limited-edition cosmetics and fragrances in Paris and Tokyo.",
+          "Swastik Beauty Cosmetics is a modern luxury beauty atelier crafting limited-edition cosmetics and fragrances in Paris and Tokyo.",
       },
-      { name: "author", content: "Velora Beauty" },
-      { name: "keywords", content: "luxury cosmetics, beauty, perfume, skincare, lipstick, atelier, Paris, Tokyo, Velora" },
+      { name: "author", content: "Swastik Beauty Cosmetics" },
+      { name: "keywords", content: "luxury cosmetics, beauty, perfume, skincare, lipstick, atelier, Paris, Tokyo, Swastik Beauty Cosmetics" },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Velora Beauty" },
+      { property: "og:site_name", content: "Swastik Beauty Cosmetics" },
       { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@velorabeauty" },
+      { name: "twitter:site", content: "@swastikbeauty" },
       { name: "format-detection", content: "telephone=no" },
     ],
     links: [
@@ -120,7 +120,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "Velora Beauty",
+          name: "Swastik Beauty Cosmetics",
           description:
             "Modern luxury beauty atelier crafting limited-edition cosmetics and fragrances.",
           foundingDate: "2018",

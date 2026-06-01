@@ -19,9 +19,9 @@ export function Instagram() {
     <section className="py-32 md:py-44 px-6 md:px-10 max-w-[1600px] mx-auto">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 reveal">
         <div>
-          <span className="block text-[10px] uppercase tracking-luxe text-[color:var(--gold)] font-semibold mb-6">— @veloraparis</span>
+          <span className="block text-[10px] uppercase tracking-luxe text-[color:var(--gold)] font-semibold mb-6">— @swastikbeauty</span>
           <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] text-balance max-w-[18ch]">
-            The Velora <em className="italic font-light">diary</em>.
+            The Swastik Beauty <em className="italic font-light">diary</em>.
           </h2>
         </div>
         <a href="#" className="text-[10px] uppercase tracking-luxe text-ink gold-underline pb-2 self-start md:self-end">
@@ -38,7 +38,7 @@ export function Instagram() {
           >
             <img
               src={t.src}
-              alt="Velora on Instagram"
+              alt="Swastik Beauty on Instagram"
               width={800}
               height={1000}
               loading="lazy"
@@ -46,7 +46,7 @@ export function Instagram() {
             />
             <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/30 transition-colors duration-500 flex items-center justify-center">
               <span className="font-serif text-2xl text-ivory opacity-0 group-hover:opacity-100 transition-opacity duration-500 italic">
-                Velora
+                Swastik Beauty
               </span>
             </div>
           </a>

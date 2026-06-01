@@ -16,7 +16,7 @@ export function Philosophy() {
           <div className="aspect-[4/3] overflow-hidden bg-cream shadow-luxe">
             <img
               src={editorial4}
-              alt="Velora flat lay editorial"
+              alt="Swastik Beauty flat lay editorial"
               width={1200}
               height={900}
               loading="lazy"
@@ -24,7 +24,7 @@ export function Philosophy() {
             />
           </div>
           <figcaption className="mt-4 text-[10px] uppercase tracking-luxe text-ink/40">
-            Figure IV — Maison Velora, Spring Campaign
+            Figure IV — Maison Swastik, Spring Campaign
           </figcaption>
         </figure>
 

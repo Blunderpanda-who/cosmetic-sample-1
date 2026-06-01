@@ -11,7 +11,7 @@ export function WhyVelora() {
   return (
     <section className="py-32 md:py-44 px-6 md:px-10 max-w-[1500px] mx-auto">
       <div className="text-center max-w-3xl mx-auto mb-20 md:mb-28 reveal">
-        <span className="block text-[10px] uppercase tracking-luxe text-[color:var(--gold)] font-semibold mb-6">— The Velora Standard</span>
+        <span className="block text-[10px] uppercase tracking-luxe text-[color:var(--gold)] font-semibold mb-6">— The Swastik Beauty Standard</span>
         <h2 className="font-serif text-5xl md:text-7xl leading-[1.02] text-balance">
           A discipline of <em className="italic font-light">refinement</em>.
         </h2>

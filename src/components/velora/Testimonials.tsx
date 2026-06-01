@@ -4,7 +4,7 @@ import portrait3 from "@/assets/portrait-3.jpg";
 
 const quotes = [
   {
-    text: "Velora is the closest thing I have found to wearing nothing — except my own skin, perfected. A revelation in modern formulation.",
+    text: "Swastik Beauty is the closest thing I have found to wearing nothing — except my own skin, perfected. A revelation in modern formulation.",
     name: "Camille Desjardins",
     role: "Editor-in-Chief, Maison Magazine",
     img: portrait1,
