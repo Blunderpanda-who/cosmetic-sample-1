@@ -14,7 +14,7 @@ export function Story() {
       {/* Floating wordmark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <span className="font-serif text-[28vw] md:text-[22vw] tracking-[0.05em] text-ivory/[0.025] leading-none">
-          VELORA
+          SWASTIK BEAUTY
         </span>
       </div>
 
